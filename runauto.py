@@ -61,3 +61,7 @@ while loop_x == 1:
 		dv = div()	
 	if option == "0":
 		loop_x = 0
+	if option == "7":
+		f = open("demofile2.txt", "w+")
+		f.write(str(dv))
+		f.close()
