@@ -1,4 +1,5 @@
 import dominate
+import sys
 from dominate.tags import *
 def generateLabel() :
     lblname = input("Please Insert Label Name")
@@ -13,29 +14,50 @@ def generateSelect():
     c = select(name=selectname,cls="form-control")
     #c.add(option())
     return c
-    
+def generateTextarea():
+    textareaname = input("Please Insert Textarea Name")
+    c = textarea(name=textareaname,cls="form-control")
+    return c
+def generateP():
+    selectname = input("Please Insert Select Name")
+    c = select(name=selectname,cls="form-control")
+    #c.add(option())
+    return c
+
 print ("Welcome To HTML Generator :")
 print ("Select Option ")
-print ("Code : 1. label 2.text 3.textarea 4. groupclass")
+print ("Code : 1. label 2.text 3.textarea 4.select ")
+print ("Prese 5 to preview");
+print ("Code : 1. label ")
+print ("Code : 2. text")
+print ("Code : 3.textarea 4.select ")
+print ("Code : 4.select ")
+print ("Code : 5.Preview ")
+print ("Code : 6.Reset")
+print ("COde : 7.Save To File")
 print ("0 To Exit")
-
-option = input("Please Select Option : ")
-
+loop_x = 1
 dv = div()
-
 dv['class'] = 'form-group'
-dv.add(input_("haha",name="test",cls="form-control"))
 
-#print(dv)
-d = div()
-with d:
-    attr(id='header')
-    attr(cls='form-group')
-dv.add(d)
-lbl = generateLabel()
-x = generateInput()
-s = generateSelect()
-#dv.add(lbl)
-#dv.add(x)  
-dv.add(s)
-print(dv)
+while loop_x == 1:
+	option = input("Please Select Option : ")
+	if option == "1":
+		lbl = generateLabel()
+		dv.add(lbl)
+	if option == "2":
+		txt = generateInput()
+		dv.add(txt)
+	if option == "3":
+		textarea = generateTextarea()
+		#print(dv)
+		dv.add(textarea)
+	if option == "4":	
+		s = generateSelect() 
+		dv.add(s)
+	if option == "5":
+		print(dv)	
+	if option == "6":
+		dv = div()	
+	if option == "0":
+		loop_x = 0
