@@ -3,14 +3,16 @@ import sys
 from dominate.tags import *
 def generateLabel() :
     lblname = input("Please Insert Label Name")
-    x = label(lblname,cls="col-md-2 control-label")
+    x = label(lblname,cls="col-md-2 control-label",_for="text-field")
     return x
 def generateInput():
     inputname = input("Please Insert Input Name")
-    c = input_(name=inputname,id=inputname)
+    placeholder = input("Please Insert Placeholder")
+    c = input_(name=inputname,id=inputname,placeholder=placeholder)
     return c
 def generateSelect():
     selectname = input("Please Insert Select Name")
+    placeholder = input("Please Insert Placeholder")
     c = select(name=selectname,cls="form-control")
     #c.add(option())
     return c
@@ -35,33 +37,56 @@ print ("Code : 4.select ")
 print ("Code : 5.Preview ")
 print ("Code : 6.Reset")
 print ("COde : 7.Save To File")
+print ("Code : 8.Open New DIV Tag")
+print ("Code : 9.Close Old Tag")
 print ("0 To Exit")
 loop_x = 1
 dv = div()
 dv['class'] = 'form-group'
 
 while loop_x == 1:
-	option = input("Please Select Option : ")
-	if option == "1":
-		lbl = generateLabel()
-		dv.add(lbl)
-	if option == "2":
-		txt = generateInput()
-		dv.add(txt)
-	if option == "3":
-		textarea = generateTextarea()
-		#print(dv)
-		dv.add(textarea)
-	if option == "4":	
-		s = generateSelect() 
-		dv.add(s)
-	if option == "5":
-		print(dv)	
-	if option == "6":
-		dv = div()	
-	if option == "0":
-		loop_x = 0
-	if option == "7":
-		f = open("demofile2.txt", "w+")
-		f.write(str(dv))
-		f.close()
+    option = input("Please Select Option : ")
+    if option == "1":
+        lbl = generateLabel()
+        if 'subdiv' in locals():
+            print("SUB DIV IS EXIST")
+            subdiv.add(lbl)
+        else:
+            dv.add(lbl)
+    if option == "2":
+        txt = generateInput()
+        if 'subdiv' in locals():
+            subdiv.add(txt)
+            print("SUB DIV IS EXIST")
+        else:
+            dv.add(txt)
+    if option == "3":
+        if 'subdiv' in locals():
+            print("SUB DIV IS EXIST")
+            subdiv.add(txt)
+        else:
+            textarea = generateTextarea()
+        #print(dv)
+        dv.add(textarea)
+    if option == "4":   
+        s = generateSelect() 
+        if 'subdiv' in locals():
+            print("SUB DIV IS EXIST")
+            subdiv.add(txt)
+        else:
+            dv.add(s)
+    if option == "5":
+        print(dv)   
+    if option == "6":
+        dv = div()  
+    if option == "0":
+        loop_x = 0
+    if option == "7":
+        f = open("result.txt", "w+")
+        f.write(str(dv))
+        f.close()
+    if option == "8":
+        subdiv = div()
+    if option == "9":
+        if 'subdiv' in locals():
+            dv.add(subdiv)    
