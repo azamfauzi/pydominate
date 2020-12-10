@@ -8,7 +8,7 @@ def generateLabel() :
 def generateInput():
     inputname = input("Please Insert Input Name")
     placeholder = input("Please Insert Placeholder")
-    c = input_(name=inputname,id=inputname,placeholder=placeholder)
+    c = input_(name=inputname,id=inputname,placeholder=placeholder,cls="form-control")
     return c
 def generateSelect():
     selectname = input("Please Insert Select Name")
@@ -82,11 +82,12 @@ while loop_x == 1:
     if option == "0":
         loop_x = 0
     if option == "7":
-        f = open("result.txt", "w+")
+        str_file = input("What is your file name")
+        f = open(str_file, "w+")
         f.write(str(dv))
         f.close()
     if option == "8":
         subdiv = div()
+        subdiv['class']="col-md-4"
     if option == "9":
-        if 'subdiv' in locals():
-            dv.add(subdiv)    
+        dv.add(subdiv)    
