@@ -35,6 +35,13 @@ def generateTextarea():
     textareaname = input("Please Insert Textarea Name")
     c = textarea(name=textareaname,id=textareaname,cls="form-control")
     return c
+def readfromfile():
+    file1 = open('input.txt', 'r') 
+    Lines = file1.readlines() 
+    count = 0
+    # Strips the newline character 
+    for line in Lines: 
+        print("Line{}: {}".format(count, line.strip())) 
 def generateP():
     selectname = input("Please Insert Select Name")
     c = select(name=selectname,cls="form-control")
@@ -54,6 +61,7 @@ print ("Code : 6. = reset")
 print ("COde : 7. = save to file")
 print ("Code : 8. = open div tag")
 print ("Code : 9. = close tag")
+print ("Code : 11. = read from file")
 print ("Code : 0. = To Exit")
 loop_x = 1
 dv = div()
@@ -104,5 +112,7 @@ while loop_x == 1:
     if option == "8" or option == "open div tag" :
         subdiv = div()
         subdiv['class']="col-md-10"
+    if option == "11" or option == "read from file":
+        readfromfile()
     if option == "9":
         dv.add(subdiv) 
