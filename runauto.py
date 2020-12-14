@@ -47,6 +47,26 @@ def readfromfile():
         c = input_(name="txt_" + line.strip(),id="txt_" + line.strip(),cls="form-control")
         d.add(c)
     return d
+def generateInputFromFile():
+    file1 = open('input.txt', 'r') 
+    Lines = file1.readlines() 
+    count = 0
+    d = div()
+    str_file = input("What is your file name to save")
+    variable_name = input("Variable Name")
+    f = open(str_file, "a+")
+    # Strips the newline character 
+    for line in Lines: 
+        print("Line{}: {}".format(count, line.strip()))
+        xstr = "$" + str(variable_name) + "_" + line.strip() + " = $this->input->post('txt_" + line.strip() + "');"
+        f.write("\n")
+        f.write(xstr)
+    for line in Lines: 
+        print("Line{}: {}".format(count, line.strip()))
+        xstr = '$' + str(variable_name) + '["' + line.strip() + '"] = $' + str(variable_name) + '_' + line.strip() + ';'
+        f.write("\n")
+        f.write(xstr)
+    f.close()
 def generateP():
     selectname = input("Please Insert Select Name")
     c = select(name=selectname,cls="form-control")
@@ -67,6 +87,7 @@ print ("COde : 7. = save to file")
 print ("Code : 8. = open div tag")
 print ("Code : 9. = close tag")
 print ("Code : 11. = read from file")
+print ("Code : 12. = generate input  from file")
 print ("Code : 0. = To Exit")
 loop_x = 1
 dv = div()
@@ -108,6 +129,8 @@ while loop_x == 1:
         dv = div()  
     if option == "0" or option == "exit":
         loop_x = 0
+    if option == "12" or option == "generate input from file":
+        generateInputFromFile()
     if option == "7" or option == "save to file" :
         str_file = input("What is your file name")
         f = open(str_file, "w+")
