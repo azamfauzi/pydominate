@@ -1,5 +1,6 @@
 import dominate
 import sys
+import pyfiglet
 from dominate.tags import *
 def listcommand():
     print ("Welcome To HTML Generator :")
@@ -43,7 +44,7 @@ def readfromfile():
     # Strips the newline character 
     for line in Lines: 
         print("Line{}: {}".format(count, line.strip()))
-        c = input_(name=line.strip(),id=line.strip(),cls="form-control")
+        c = input_(name="txt_" + line.strip(),id="txt_" + line.strip(),cls="form-control")
         d.add(c)
     return d
 def generateP():
@@ -51,8 +52,8 @@ def generateP():
     c = select(name=selectname,cls="form-control")
     #c.add(option())
     return c
-
-print ("Welcome To HTML Generator :")
+result = pyfiglet.figlet_format("Ayden Tech")
+print(result)
 print ("Select Option ")
 print ("Code : 1. label 2.text 3.textarea 4.select ")
 print ("Prese 5 to preview");
