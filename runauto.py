@@ -39,9 +39,13 @@ def readfromfile():
     file1 = open('input.txt', 'r') 
     Lines = file1.readlines() 
     count = 0
+    d = div()
     # Strips the newline character 
     for line in Lines: 
-        print("Line{}: {}".format(count, line.strip())) 
+        print("Line{}: {}".format(count, line.strip()))
+        c = input_(name=line.strip(),id=line.strip(),cls="form-control")
+        d.add(c)
+    return d
 def generateP():
     selectname = input("Please Insert Select Name")
     c = select(name=selectname,cls="form-control")
@@ -113,6 +117,7 @@ while loop_x == 1:
         subdiv = div()
         subdiv['class']="col-md-10"
     if option == "11" or option == "read from file":
-        readfromfile()
+        x = readfromfile()
+        dv.add(x)
     if option == "9":
         dv.add(subdiv) 
