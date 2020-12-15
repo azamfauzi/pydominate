@@ -34,3 +34,16 @@ currentgrant_coid
 currentgrant_regcompanyno
 currentgrant_companyname
 currentgrant_equity
+detailssag_id
+detailssag_coid 
+detailssag_company_type
+detailssag_manifacturing_type
+detailssag_service_type_1
+detailssag_service_type_2
+detailssag_company_cat
+detailssag_product_activity
+detailssag_raw_material
+detailssag_export_country
+detailssag_export_sales
+detailssag_domestic_sales
+detailssag_turnover_sales
